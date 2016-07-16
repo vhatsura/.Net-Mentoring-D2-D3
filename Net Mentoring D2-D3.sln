@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expressions and IQueryable", "Expressions and IQueryable\Expressions and IQueryable.csproj", "{A22B7A74-3FCA-47AE-B3DF-DF88DDDA5FE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expressions and IQueryable", "Expressions and IQueryable\Expressions and IQueryable\Expressions and IQueryable.csproj", "{A22B7A74-3FCA-47AE-B3DF-DF88DDDA5FE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expressions and IQueryable.Tests", "Expressions and IQueryable.Tests\Expressions and IQueryable.Tests.csproj", "{B238F9D6-E028-4492-8C8B-F5867ECF03A9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expressions and IQueryable.Tests", "Expressions and IQueryable\Expressions and IQueryable.Tests\Expressions and IQueryable.Tests.csproj", "{B238F9D6-E028-4492-8C8B-F5867ECF03A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Expressions and IQueryables", "Expressions and IQueryables", "{1CEEB587-9AC6-4E08-8F7B-4855024B5D48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +26,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A22B7A74-3FCA-47AE-B3DF-DF88DDDA5FE7} = {1CEEB587-9AC6-4E08-8F7B-4855024B5D48}
+		{B238F9D6-E028-4492-8C8B-F5867ECF03A9} = {1CEEB587-9AC6-4E08-8F7B-4855024B5D48}
 	EndGlobalSection
 EndGlobal
