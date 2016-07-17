@@ -7,8 +7,8 @@
     <ProjectGuid>{B238F9D6-E028-4492-8C8B-F5867ECF03A9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Expressions_and_IQueryable.Tests</RootNamespace>
-    <AssemblyName>Expressions and IQueryable.Tests</AssemblyName>
+    <RootNamespace>ExpressionsAndIQueryable.Tests</RootNamespace>
+    <AssemblyName>ExpressionsAndIQueryable.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="nunit.framework, Version=3.4.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.3.4.1\lib\net45\nunit.framework.dll</HintPath>
+      <HintPath>..\..\packages\NUnit.3.4.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -44,11 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomExpressionVisitorTests.cs" />
+    <Compile Include="CustomExpressionTransformerTests.cs" />
+    <Compile Include="ExpressionsComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Expressions and IQueryable\ExpressionsAndIQueryable.csproj">
+      <Project>{a22b7a74-3fca-47ae-b3df-df88ddda5fe7}</Project>
+      <Name>ExpressionsAndIQueryable</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
