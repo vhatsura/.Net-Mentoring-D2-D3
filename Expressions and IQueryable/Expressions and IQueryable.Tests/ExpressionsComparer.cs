@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace ExpressionsAndIQueryable.Tests
@@ -16,8 +18,7 @@ namespace ExpressionsAndIQueryable.Tests
             switch (x.NodeType)
             {
                 case ExpressionType.Lambda:
-                    return ExpressionEqual(((LambdaExpression)x).Body, ((LambdaExpression)y).Body);
-
+                    return IsLambdaExpressionsEqual(x as LambdaExpression, y as LambdaExpression);
                 case ExpressionType.MemberAccess:
                     MemberExpression mex = (MemberExpression)x, mey = (MemberExpression)y;
                     return mex.Member == mey.Member; // should really test down-stream expression
@@ -67,6 +68,23 @@ namespace ExpressionsAndIQueryable.Tests
         {
             return x != null && y != null &&
                        x.Value.Equals(y.Value);
+        }
+
+        private static bool IsLambdaExpressionsEqual(LambdaExpression x, LambdaExpression y)
+        {
+            return x != null && y != null &&
+                ExpressionEqual(x.Body, y.Body) &&
+                IsParameterCollectionsEqual(x.Parameters, y.Parameters);
+        }
+
+        private static bool IsParameterCollectionsEqual(
+            ReadOnlyCollection<ParameterExpression> x,
+            ReadOnlyCollection<ParameterExpression> y)
+        {
+            if (ReferenceEquals(x, y)) return true;
+            if (x == null || y == null) return false;
+
+            return x.Count == y.Count && x.Select((t, i) => ExpressionEqual(t, y[i])).All(result => result);
         }
     }
 }

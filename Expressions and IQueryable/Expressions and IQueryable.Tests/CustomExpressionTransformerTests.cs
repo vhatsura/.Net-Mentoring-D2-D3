@@ -54,9 +54,71 @@ namespace ExpressionsAndIQueryable.Tests
             var actualExpression = transformer.Visit(sourceExpression);
 
             // Assert
-            Assert.IsTrue(ExpressionsComparer.ExpressionEqual(actualExpression, expectedExpression), $"Expected: {expectedExpression}\r\nActual: {actualExpression}");
+            Assert.IsTrue(ExpressionsComparer.ExpressionEqual(actualExpression, expectedExpression), $"Expected: {expectedExpression}\r\nActual: {actualExpression}\r\n");
         }
-        
+
+        #endregion
+
+        #region Change Parameters to constants Tests
+
+        public static IEnumerable<TestCaseData> ChangeParametersToConstantsTestData
+        {
+            get
+            {
+                yield return new TestCaseData(
+                    (Expression<Func<int, int>>)(a => a + 1),
+                    new Dictionary<string, object>() { {"a", 1} },
+                    Expression.Lambda(Expression.Add(Expression.Constant(1), Expression.Constant(1))));
+
+                yield return new TestCaseData(
+                    (Expression<Func<int, int>>)(a => a + 1),
+                    new Dictionary<string, object>() { { "b", 1 } },
+                    Expression.Lambda(
+                        Expression.Add(
+                            Expression.Parameter(typeof(int), "a"),
+                            Expression.Constant(1)),
+                        Expression.Parameter(typeof(int), "a"))
+                    );
+
+                yield return new TestCaseData(
+                    (Expression<Func<int,int,int, int>>)((a,b,c) => a + 1 + c),
+                    new Dictionary<string, object>() { { "a", 2 }, {"c", 3} },
+                    Expression.Lambda(
+                        Expression.Add(
+                            Expression.Add(
+                                Expression.Constant(2),
+                                Expression.Constant(1)),
+                            Expression.Constant(3)),
+                        Expression.Parameter(typeof(int), "b"))
+                    );
+
+                yield return new TestCaseData(
+                   (Expression<Func<int, int, int>>)((a, b) => a + 1),
+                   new Dictionary<string, object>() { { "a", 2 }, { "b", 3 } },
+                   Expression.Lambda(
+                       Expression.Add(
+                           Expression.Constant(2),
+                           Expression.Constant(1)))
+                   );
+            }
+        }
+
+        [Test, TestCaseSource(nameof(ChangeParametersToConstantsTestData))]
+        public void ChangeParametersToConstantsTest(
+            Expression sourceExpression,
+            Dictionary<string, object> values,
+            Expression expectedExpression )
+        {
+            // Arrange
+            var transformer = new CustomExpressionTransformer();
+
+            // Act
+            var actualExpression = transformer.ChangeParametersToConstants(sourceExpression, values);
+
+            // Assert
+            Assert.IsTrue(ExpressionsComparer.ExpressionEqual(actualExpression, expectedExpression), $"Expected: {expectedExpression}\r\nActual: {actualExpression}\r\n");
+        }
+
         #endregion
     }
 }
