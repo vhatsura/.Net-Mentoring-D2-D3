@@ -25,12 +25,17 @@ namespace ExpressionsAndIQueryable.E3S
 				var predicate = node.Arguments[1];
 				Visit(predicate);
 
+			    if (node.Arguments[0].NodeType == ExpressionType.Call)
+			    {
+			        return this.VisitMethodCall((MethodCallExpression) node.Arguments[0]);
+			    }
+
 				return node;
 			}
 		    if (node.Method.DeclaringType == typeof (string) &&
 		        node.Method.Name == "StartsWith")
 		    {
-                IsEndsWith = true;
+                IsStartsWith = true;
 			    var result = base.VisitMethodCall(node);
 		        IsStartsWith = false;
 

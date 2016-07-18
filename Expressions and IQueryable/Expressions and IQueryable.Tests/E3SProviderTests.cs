@@ -47,6 +47,7 @@ namespace ExpressionsAndIQueryable.Tests
 
             foreach (var emp in resultEmployees)
             {
+                Assert.IsTrue(emp.workstation == "EPRUIZHW0249");
                 Console.WriteLine("{0} {1}", emp.nativename, emp.startworkdate);
             }
         }
@@ -62,6 +63,7 @@ namespace ExpressionsAndIQueryable.Tests
 
             foreach (var emp in resultEmployees)
             {
+                Assert.IsTrue(emp.workstation == "EPRUIZHW0249");
                 Console.WriteLine("{0} {1}", emp.nativename, emp.startworkdate);
             }
         }
@@ -77,6 +79,7 @@ namespace ExpressionsAndIQueryable.Tests
 
             foreach (var emp in resultEmployees)
             {
+                Assert.IsTrue(emp.workstation.StartsWith("EPRUIZHW024"));
                 Console.WriteLine("{0} {1}", emp.nativename, emp.startworkdate);
             }
         }
@@ -86,12 +89,13 @@ namespace ExpressionsAndIQueryable.Tests
         {
             var employees = new E3SEntitySet<EmployeeEntity>(ConfigurationManager.AppSettings["user"], ConfigurationManager.AppSettings["password"]);
 
-            var resultEmployees = employees.Where(e => e.workstation.StartsWith("IZHW0249"));
+            var resultEmployees = employees.Where(e => e.workstation.EndsWith("IZHW0249"));
 
             Assert.IsTrue(resultEmployees.AsEnumerable().Any());
 
             foreach (var emp in resultEmployees)
             {
+                Assert.IsTrue(emp.workstation.EndsWith("IZHW0249"));
                 Console.WriteLine("{0} {1}", emp.nativename, emp.startworkdate);
             }
         }
@@ -107,6 +111,23 @@ namespace ExpressionsAndIQueryable.Tests
 
             foreach (var emp in resultEmployees)
             {
+                Assert.IsTrue(emp.workstation.Contains("IZHW024"));
+                Console.WriteLine("{0} {1}", emp.nativename, emp.startworkdate);
+            }
+        }
+
+        [Test]
+        public void WithProviderAND()
+        {
+            var employees = new E3SEntitySet<EmployeeEntity>(ConfigurationManager.AppSettings["user"], ConfigurationManager.AppSettings["password"]);
+
+            var resultEmployees = employees.Where(e => e.workstation.StartsWith("EPRUIZHW024")).Where(e => e.startworkdate == "2010-08-30");
+
+            Assert.IsTrue(resultEmployees.AsEnumerable().Any());
+
+            foreach (var emp in resultEmployees)
+            {
+                Assert.IsTrue(emp.workstation.StartsWith("EPRUIZHW024") && emp.startworkdate == "2010-08-30");
                 Console.WriteLine("{0} {1}", emp.nativename, emp.startworkdate);
             }
         }
