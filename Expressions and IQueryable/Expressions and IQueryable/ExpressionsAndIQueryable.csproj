@@ -30,8 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,9 +46,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomExpressionTransformer.cs" />
+    <Compile Include="E3S\E3SClient\E3SEntity.cs" />
+    <Compile Include="E3S\E3SClient\E3SMetaTypeAttribute.cs" />
+    <Compile Include="E3S\E3SClient\E3SQueryClient.cs" />
+    <Compile Include="E3S\E3SClient\Entities\EmployeeEntity.cs" />
+    <Compile Include="E3S\E3SClient\FTSQueryRequest.cs" />
+    <Compile Include="E3S\E3SClient\FTSRequestGenerator.cs" />
+    <Compile Include="E3S\E3SClient\FTSResponse.cs" />
+    <Compile Include="E3S\E3SEntitySet.cs" />
+    <Compile Include="E3S\E3SLinqProvider.cs" />
+    <Compile Include="E3S\E3SQuery.cs" />
+    <Compile Include="E3S\ExpressionToFTSRequestTranslator.cs" />
+    <Compile Include="E3S\TypeHelper.cs" />
     <Compile Include="Mapper.cs" />
     <Compile Include="MappingGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
