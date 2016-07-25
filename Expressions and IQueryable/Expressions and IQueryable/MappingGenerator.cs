@@ -31,13 +31,15 @@ namespace ExpressionsAndIQueryable
             var sourceProperties = sourceParam.Type.GetProperties();
 
             var propertyToPropertyMappings = sourceProperties
-                                                .Where(p => typeof(TDestination).GetProperty(p.Name)?.PropertyType == p.PropertyType)
+                                                .Where(p => typeof(TDestination).GetProperty(p.Name)?.PropertyType == p.PropertyType && 
+                                                            typeof(TDestination).GetProperty(p.Name).SetMethod != null)
                                                 .Select(p => Expression.Bind(
                                                     typeof(TDestination).GetProperty(p.Name),
                                                     Expression.Property(sourceParam, p)));
 
             var propertyToFieldMappings = sourceProperties
-                                                .Where(p => typeof(TDestination).GetField(p.Name)?.FieldType == p.PropertyType)
+                                                .Where(p => typeof(TDestination).GetField(p.Name)?.FieldType == p.PropertyType &&
+                                                            typeof(TDestination).GetField(p.Name).IsInitOnly == false)
                                                 .Select(p => Expression.Bind(
                                                     typeof(TDestination).GetField(p.Name),
                                                     Expression.Property(sourceParam, p)));
@@ -50,13 +52,15 @@ namespace ExpressionsAndIQueryable
             var sourceFields = sourceParam.Type.GetFields();
 
             var fieldToFieldMappings = sourceFields
-                                                .Where(f => typeof(TDestination).GetField(f.Name)?.FieldType == f.FieldType)
+                                                .Where(f => typeof(TDestination).GetField(f.Name)?.FieldType == f.FieldType &&
+                                                            typeof(TDestination).GetField(f.Name).IsInitOnly == false)
                                                 .Select(f => Expression.Bind(
                                                     typeof(TDestination).GetField(f.Name),
                                                     Expression.Field(sourceParam, f)));
 
             var fieldToPropertyMappings = sourceFields
-                                                .Where(f => typeof(TDestination).GetProperty(f.Name)?.PropertyType == f.FieldType)
+                                                .Where(f => typeof(TDestination).GetProperty(f.Name)?.PropertyType == f.FieldType &&
+                                                            typeof(TDestination).GetProperty(f.Name).SetMethod != null)
                                                 .Select(f => Expression.Bind(
                                                     typeof(TDestination).GetProperty(f.Name),
                                                     Expression.Field(sourceParam, f)));

@@ -48,18 +48,24 @@
     <Compile Include="CustomExpressionTransformerTests.cs" />
     <Compile Include="E3SProviderTests.cs" />
     <Compile Include="ExpressionsComparer.cs" />
+    <Compile Include="MapperClasses.cs" />
     <Compile Include="MapperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Expressions and IQueryable\ExpressionsAndIQueryable.csproj">
       <Project>{a22b7a74-3fca-47ae-b3df-df88ddda5fe7}</Project>
       <Name>ExpressionsAndIQueryable</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
