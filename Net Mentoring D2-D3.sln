@@ -9,11 +9,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionsAndIQueryable.Te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Expressions and IQueryables", "Expressions and IQueryables", "{1CEEB587-9AC6-4E08-8F7B-4855024B5D48}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4C4EB208-B345-422F-B079-1ECAB1DDA0EE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Advanced XML", "Advanced XML", "{4C4EB208-B345-422F-B079-1ECAB1DDA0EE}"
 	ProjectSection(SolutionItems) = preProject
+		Advanced XML\book.xsd = Advanced XML\book.xsd
 		Advanced XML\books.xml = Advanced XML\books.xml
 		Advanced XML\Readme.md = Advanced XML\Readme.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedXML", "Advanced XML\AdvancedXML\AdvancedXML.csproj", "{ABDE9573-3B68-497B-A1C3-EF80743722DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedXML.Tests", "Advanced XML\AdvancedXML.Tests\AdvancedXML.Tests.csproj", "{273F3E94-A990-4BA9-A41C-26123A83A1A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +34,14 @@ Global
 		{B238F9D6-E028-4492-8C8B-F5867ECF03A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B238F9D6-E028-4492-8C8B-F5867ECF03A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B238F9D6-E028-4492-8C8B-F5867ECF03A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABDE9573-3B68-497B-A1C3-EF80743722DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABDE9573-3B68-497B-A1C3-EF80743722DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABDE9573-3B68-497B-A1C3-EF80743722DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABDE9573-3B68-497B-A1C3-EF80743722DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{273F3E94-A990-4BA9-A41C-26123A83A1A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{273F3E94-A990-4BA9-A41C-26123A83A1A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{273F3E94-A990-4BA9-A41C-26123A83A1A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{273F3E94-A990-4BA9-A41C-26123A83A1A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,5 +49,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A22B7A74-3FCA-47AE-B3DF-DF88DDDA5FE7} = {1CEEB587-9AC6-4E08-8F7B-4855024B5D48}
 		{B238F9D6-E028-4492-8C8B-F5867ECF03A9} = {1CEEB587-9AC6-4E08-8F7B-4855024B5D48}
+		{ABDE9573-3B68-497B-A1C3-EF80743722DE} = {4C4EB208-B345-422F-B079-1ECAB1DDA0EE}
+		{273F3E94-A990-4BA9-A41C-26123A83A1A1} = {4C4EB208-B345-422F-B079-1ECAB1DDA0EE}
 	EndGlobalSection
 EndGlobal

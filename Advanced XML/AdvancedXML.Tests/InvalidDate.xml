@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<catalog xmlns="http://library.by/catalog">
+  <book id="bk101">
+    <isbn>0-596-00103-7</isbn>
+    <author>Löwy, Juval</author>
+    <title>COM and .NET Component Services</title>
+    <genre>Computer</genre>
+    <publisher>O'Reilly</publisher>
+    <publish_date>09/01/2001</publish_date>
+    <description>
+      COM &amp; .NET Component Services provides both traditional COM programmers and new .NET
+      component developers with the information they need to begin developing applications that take full advantage of COM+ services.
+      This book focuses on COM+ services, including support for transactions, queued components, events, concurrency management, and security
+    </description>
+    <registration_date>01/05/2016</registration_date>
+  </book>
+</catalog>
