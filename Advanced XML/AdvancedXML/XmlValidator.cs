@@ -8,7 +8,7 @@ using System.Xml.Schema;
 
 namespace AdvancedXML
 {
-    public class XmlValidator
+    public sealed class XmlValidator
     {
         /// <summary>
         /// Validate xml file with xsd schema

@@ -35,7 +35,6 @@ namespace AdvancedXML.Tests
         public void ValidateTests(string targetNamespace, string schemaPath, string filePath, bool expectedResult)
         {
             // Arrange
-            Console.WriteLine(Directory.GetCurrentDirectory());
             var validator = new XmlValidator();
             IList<string> errors;
 
