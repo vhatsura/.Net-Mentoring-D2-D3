@@ -15,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Advanced XML", "Advanced XM
 		Advanced XML\books.xml = Advanced XML\books.xml
 		Advanced XML\Readme.md = Advanced XML\Readme.md
 		Advanced XML\xmlToAtom.xslt = Advanced XML\xmlToAtom.xslt
+		Advanced XML\xmlToHTMLReport.xslt = Advanced XML\xmlToHTMLReport.xslt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedXML", "Advanced XML\AdvancedXML\AdvancedXML.csproj", "{ABDE9573-3B68-497B-A1C3-EF80743722DE}"

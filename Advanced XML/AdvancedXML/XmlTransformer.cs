@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Xml;
 using System.Xml.XPath;
 using System.Xml.Xsl;
@@ -9,21 +9,21 @@ namespace AdvancedXML
 {
     public sealed class XmlTransformer
     {
-        public void Transform(string xsltPath, Stream input, Stream output)
+        public void Transform(string xsltPath, Stream input, Stream output) =>
+            Transform(xsltPath, input, output, new Dictionary<string, object>());
+
+        public void Transform(string xsltPath, Stream input, Stream output, Dictionary<string, object> parameters)
         {
             if (string.IsNullOrWhiteSpace(xsltPath))
                 throw new ArgumentException(nameof(xsltPath));
-
             if (input == null)
                 throw new ArgumentException(nameof(input));
-
             if (output == null)
                 throw new ArgumentException(nameof(output));
+            if (parameters == null)
+                throw new ArgumentException(nameof(parameters));
 
-            var xsltSettings = new XsltSettings()
-            {
-                EnableScript = true
-            };
+            var xsltSettings = new XsltSettings() { EnableScript = true };
 
             var xslt = new XslCompiledTransform();
             xslt.Load(XmlReader.Create(xsltPath), xsltSettings, null);
@@ -38,8 +38,18 @@ namespace AdvancedXML
             };
 
             var writer = XmlWriter.Create(output, xmlWriterSettings);
+            xslt.Transform(document, GetArgumentList(parameters), writer);
+        }
 
-            xslt.Transform(document, writer);
+        private static XsltArgumentList GetArgumentList(Dictionary<string, object> parameters)
+        {
+            var argumentList = new XsltArgumentList();
+            foreach (var parameter in parameters)
+            {
+                argumentList.AddParam(parameter.Key, "", parameter.Value);
+            }
+
+            return argumentList;
         }
     }
 }
