@@ -17,12 +17,12 @@ namespace InteroperatingWithUnmanagedCode
 
         public SystemBatteryState GetSystemBatteryState()
         {
-            throw new NotImplementedException();
+            return GetSystemInformation<SystemBatteryState>(InformationLevel.SystemBatteryState);
         }
 
         public SystemPowerInformation GetSystemPowerInformation()
         {
-            throw new NotImplementedException();
+            return GetSystemInformation<SystemPowerInformation>(InformationLevel.SystemPowerInformation);
         }
 
         public void ReserveHibernationFile()
@@ -40,21 +40,33 @@ namespace InteroperatingWithUnmanagedCode
             throw new NotImplementedException();
         }
 
-        private DateTime GetLastTime(InformationLevel level)
+        private static DateTime GetLastTime(InformationLevel level)
         {
-            var outputBufferSize = Marshal.SizeOf<ulong>();
-            var outputBuffer = Marshal.AllocHGlobal(outputBufferSize);
-
-            PowerStateManagement.CallNtPowerInformation((int) level, IntPtr.Zero, 0, outputBuffer, (uint) outputBufferSize);
-
-            var ticks = Marshal.ReadInt64(outputBuffer);
-            Marshal.FreeHGlobal(outputBuffer);
+            long ticks = 0;
+            CallNtPowerInformation<ulong>(level, buffer => ticks = Marshal.ReadInt64(buffer));
 
             var startupTime = PowerStateManagement.GetTickCount64() * 10000;
-
             var date = DateTime.UtcNow - TimeSpan.FromTicks((long) startupTime) + TimeSpan.FromTicks(ticks);
 
             return date;
+        }
+
+        private static T GetSystemInformation<T>(InformationLevel level)
+        {
+            var information = default(T);
+            CallNtPowerInformation<T>(level, buffer => information = Marshal.PtrToStructure<T>(buffer));
+
+            return information;
+        }
+
+        private static void CallNtPowerInformation<T>(InformationLevel level, Action<IntPtr> readOutputBuffer)
+        {
+            var outputBufferSize = Marshal.SizeOf<T>();
+            var outputBuffer = Marshal.AllocHGlobal(outputBufferSize);
+
+            PowerStateManagement.CallNtPowerInformation((int) level, IntPtr.Zero, 0, outputBuffer, (uint) outputBufferSize);
+            readOutputBuffer.Invoke(outputBuffer);
+            Marshal.FreeHGlobal(outputBuffer);
         }
 
         private class PowerStateManagement

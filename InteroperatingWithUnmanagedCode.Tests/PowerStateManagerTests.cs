@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using NUnit.Framework;
 
 namespace InteroperatingWithUnmanagedCode.Tests
@@ -31,6 +30,32 @@ namespace InteroperatingWithUnmanagedCode.Tests
 
             // Assert
             Console.WriteLine($"Last Wake Time in UTC: {date:u}. In Local Time: {date.ToLocalTime()}");
+        }
+
+        [Test]
+        public void GetSystemBatteryStateTest()
+        {
+            // Arrange
+            var powerManager = new PowerStateManager();
+
+            // Act
+            var state = powerManager.GetSystemBatteryState();
+
+            // Assert
+            Console.WriteLine($"System Battery State: {state}");
+        }
+
+        [Test]
+        public void GetSystemPowerInformationTest()
+        {
+            // Arrange
+            var powerManager = new PowerStateManager();
+
+            // Act
+            var information = powerManager.GetSystemPowerInformation();
+
+            // Assert
+            Console.WriteLine($"System Power Information: {information}");
         }
     }
 }
