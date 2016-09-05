@@ -57,5 +57,53 @@ namespace InteroperatingWithUnmanagedCode.Tests
             // Assert
             Console.WriteLine($"System Power Information: {information}");
         }
+
+        [Test]
+        public void ReserveHibernationFileTest()
+        {
+            // Arrange
+            var powerManager = new PowerStateManager();
+
+            // Act
+            powerManager.ReserveHibernationFile();
+
+            // Assert
+        }
+
+        [Test]
+        public void RemoveHibernationFileTest()
+        {
+            // Arrange
+            var powerManager = new PowerStateManager();
+
+            // Act
+            powerManager.RemoveHibernationFile();
+
+            // Assert
+        }
+
+        [Test]
+        public void SleepSystemTest()
+        {
+            // Arrange
+            var powerManager = new PowerStateManager();
+
+            // Act
+            powerManager.SleepSystem();
+
+            // Assert
+        }
+
+        [Test]
+        public void HibernateSystemTest()
+        {
+            // Arrange
+            var powerManager = new PowerStateManager();
+
+            // Act
+            powerManager.HibernateSystem();
+
+            // Assert
+        }
     }
 }

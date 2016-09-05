@@ -5,39 +5,35 @@ namespace InteroperatingWithUnmanagedCode
 {
     public sealed class PowerStateManager
     {
-        public DateTime GetLastSleepTime()
-        {
-            return GetLastTime(InformationLevel.LastSleepTime);
-        }
+        public DateTime GetLastSleepTime() => GetLastTime(InformationLevel.LastSleepTime);
 
-        public DateTime GetLastWakeTime()
-        {
-            return GetLastTime(InformationLevel.LastWakeTime);
-        }
+        public DateTime GetLastWakeTime() => GetLastTime(InformationLevel.LastWakeTime);
 
-        public SystemBatteryState GetSystemBatteryState()
-        {
-            return GetSystemInformation<SystemBatteryState>(InformationLevel.SystemBatteryState);
-        }
+        public SystemBatteryState GetSystemBatteryState() =>
+            GetSystemInformation<SystemBatteryState>(InformationLevel.SystemBatteryState);
 
-        public SystemPowerInformation GetSystemPowerInformation()
-        {
-            return GetSystemInformation<SystemPowerInformation>(InformationLevel.SystemPowerInformation);
-        }
+        public SystemPowerInformation GetSystemPowerInformation() =>
+            GetSystemInformation<SystemPowerInformation>(InformationLevel.SystemPowerInformation);
 
-        public void ReserveHibernationFile()
-        {
-            throw new NotImplementedException();
-        }
+        public void ReserveHibernationFile() => ManageHibernationFile(true);
 
-        public void RemoveHibernationFile()
-        {
-            throw new NotImplementedException();
-        }
+        public void RemoveHibernationFile() => ManageHibernationFile(false);
 
-        public void SuspendSystem(bool hibernate)
+        public void SleepSystem() => SuspendSystem(false);
+
+        public void HibernateSystem() => SuspendSystem(true);
+
+        private void SuspendSystem(bool hibernate) => PowerStateManagement.SetSuspendState(hibernate, false, false);
+
+        private void ManageHibernationFile(bool reserve)
         {
-            throw new NotImplementedException();
+            var inputBufferSize = Marshal.SizeOf<int>();
+            var inputBuffer = Marshal.AllocHGlobal(inputBufferSize);
+
+            Marshal.WriteInt32(inputBuffer, 0, reserve ? 1 : 0);
+            PowerStateManagement.CallNtPowerInformation((int)InformationLevel.SystemReserveHiberFile, inputBuffer, (uint)inputBufferSize, IntPtr.Zero, 0);
+
+            Marshal.FreeHGlobal(inputBuffer);
         }
 
         private static DateTime GetLastTime(InformationLevel level)
@@ -68,6 +64,8 @@ namespace InteroperatingWithUnmanagedCode
             readOutputBuffer.Invoke(outputBuffer);
             Marshal.FreeHGlobal(outputBuffer);
         }
+
+        #region Dll Imports
 
         private class PowerStateManagement
         {
@@ -100,5 +98,7 @@ namespace InteroperatingWithUnmanagedCode
             [DllImport("powrprof.dll")]
             public static extern bool SetSuspendState(bool hibernate, bool forceCritical, bool disableWakeEvent);
         }
+
+        #endregion
     }
 }
