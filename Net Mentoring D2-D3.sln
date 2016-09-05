@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionsAndIQueryable.Tests", "Expressions and IQueryable\Expressions and IQueryable.Tests\ExpressionsAndIQueryable.Tests.csproj", "{B238F9D6-E028-4492-8C8B-F5867ECF03A9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Expressions and IQueryables", "Expressions and IQueryables", "{1CEEB587-9AC6-4E08-8F7B-4855024B5D48}"
+	ProjectSection(SolutionItems) = preProject
+		Expressions and IQueryable\README.md = Expressions and IQueryable\README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Advanced XML", "Advanced XML", "{4C4EB208-B345-422F-B079-1ECAB1DDA0EE}"
 	ProjectSection(SolutionItems) = preProject
@@ -21,6 +24,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedXML", "Advanced XML\AdvancedXML\AdvancedXML.csproj", "{ABDE9573-3B68-497B-A1C3-EF80743722DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdvancedXML.Tests", "Advanced XML\AdvancedXML.Tests\AdvancedXML.Tests.csproj", "{273F3E94-A990-4BA9-A41C-26123A83A1A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteroperatingWithUnmanagedCode", "Interoperating with Unmanaged Code\InteroperatingWithUnmanagedCode\InteroperatingWithUnmanagedCode.csproj", "{F45EB9E2-98BF-48F7-AA42-F0240573163D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interoperating with Unmanaged Code", "Interoperating with Unmanaged Code", "{C8F7E2D1-C229-4674-8E68-038F5917119C}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +54,10 @@ Global
 		{273F3E94-A990-4BA9-A41C-26123A83A1A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{273F3E94-A990-4BA9-A41C-26123A83A1A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{273F3E94-A990-4BA9-A41C-26123A83A1A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F45EB9E2-98BF-48F7-AA42-F0240573163D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F45EB9E2-98BF-48F7-AA42-F0240573163D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F45EB9E2-98BF-48F7-AA42-F0240573163D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F45EB9E2-98BF-48F7-AA42-F0240573163D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,5 +67,6 @@ Global
 		{B238F9D6-E028-4492-8C8B-F5867ECF03A9} = {1CEEB587-9AC6-4E08-8F7B-4855024B5D48}
 		{ABDE9573-3B68-497B-A1C3-EF80743722DE} = {4C4EB208-B345-422F-B079-1ECAB1DDA0EE}
 		{273F3E94-A990-4BA9-A41C-26123A83A1A1} = {4C4EB208-B345-422F-B079-1ECAB1DDA0EE}
+		{F45EB9E2-98BF-48F7-AA42-F0240573163D} = {C8F7E2D1-C229-4674-8E68-038F5917119C}
 	EndGlobalSection
 EndGlobal
