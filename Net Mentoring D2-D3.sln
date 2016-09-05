@@ -32,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interoperating with Unmanag
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteroperatingWithUnmanagedCode.Tests", "InteroperatingWithUnmanagedCode.Tests\InteroperatingWithUnmanagedCode.Tests.csproj", "{91A4396B-097A-4F61-93E1-16FC287F9726}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{F45EB9E2-98BF-48F7-AA42-F0240573163D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F45EB9E2-98BF-48F7-AA42-F0240573163D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F45EB9E2-98BF-48F7-AA42-F0240573163D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91A4396B-097A-4F61-93E1-16FC287F9726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91A4396B-097A-4F61-93E1-16FC287F9726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91A4396B-097A-4F61-93E1-16FC287F9726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91A4396B-097A-4F61-93E1-16FC287F9726}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,5 +74,6 @@ Global
 		{ABDE9573-3B68-497B-A1C3-EF80743722DE} = {4C4EB208-B345-422F-B079-1ECAB1DDA0EE}
 		{273F3E94-A990-4BA9-A41C-26123A83A1A1} = {4C4EB208-B345-422F-B079-1ECAB1DDA0EE}
 		{F45EB9E2-98BF-48F7-AA42-F0240573163D} = {C8F7E2D1-C229-4674-8E68-038F5917119C}
+		{91A4396B-097A-4F61-93E1-16FC287F9726} = {C8F7E2D1-C229-4674-8E68-038F5917119C}
 	EndGlobalSection
 EndGlobal
