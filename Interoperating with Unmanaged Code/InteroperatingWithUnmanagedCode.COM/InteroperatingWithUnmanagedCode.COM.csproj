@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{91A4396B-097A-4F61-93E1-16FC287F9726}</ProjectGuid>
+    <ProjectGuid>{732FE675-68AC-4F6C-9503-EA33C7D0E9BE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>InteroperatingWithUnmanagedCode.Tests</RootNamespace>
-    <AssemblyName>InteroperatingWithUnmanagedCode.Tests</AssemblyName>
+    <RootNamespace>InteroperatingWithUnmanagedCode.COM</RootNamespace>
+    <AssemblyName>InteroperatingWithUnmanagedCode.COM</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>true</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,10 +30,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>certificate.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.3.4.1\lib\net45\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,17 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PowerStateManagerTests.cs" />
+    <Compile Include="IPowerStateManagerCOM.cs" />
+    <Compile Include="PowerStateManagerCOM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Interoperating with Unmanaged Code\InteroperatingWithUnmanagedCode\InteroperatingWithUnmanagedCode.csproj">
+    <ProjectReference Include="..\InteroperatingWithUnmanagedCode\InteroperatingWithUnmanagedCode.csproj">
       <Project>{f45eb9e2-98bf-48f7-aa42-f0240573163d}</Project>
       <Name>InteroperatingWithUnmanagedCode</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="certificate.pfx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

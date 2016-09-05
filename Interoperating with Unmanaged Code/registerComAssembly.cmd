@@ -1,0 +1,2 @@
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe "D:\Projects\.Net-Mentoring-D2-D3\Interoperating with Unmanaged Code\InteroperatingWithUnmanagedCode.COM\bin\Debug\InteroperatingWithUnmanagedCode.COM.dll" /tlb /codebase /verbose
+pause
