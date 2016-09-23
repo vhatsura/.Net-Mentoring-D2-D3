@@ -31,7 +31,7 @@ namespace ExpressionsAndIQueryable
             var sourceProperties = sourceParam.Type.GetProperties();
 
             var propertyToPropertyMappings = sourceProperties
-                                                .Where(p => typeof(TDestination).GetProperty(p.Name)?.PropertyType == p.PropertyType && 
+                                                .Where(p => typeof(TDestination).GetProperty(p.Name)?.PropertyType == p.PropertyType &&
                                                             typeof(TDestination).GetProperty(p.Name).SetMethod != null)
                                                 .Select(p => Expression.Bind(
                                                     typeof(TDestination).GetProperty(p.Name),
