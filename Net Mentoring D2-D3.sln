@@ -46,6 +46,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows Services", "Windows
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoProcessingService", "Windows Services\PhotoProcessingService\PhotoProcessingService.csproj", "{9C069AC0-22DE-4F50-A42F-E659D5246C47}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Message Queues", "Message Queues", "{8E1AE77A-F69B-4288-AC95-9A291EF16532}"
+	ProjectSection(SolutionItems) = preProject
+		Message Queues\Readme.md = Message Queues\Readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Message Queues\Server\Server.csproj", "{A881E7E2-735F-44F8-8EBA-D644FA725A37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoProcessingService", "Message Queues\PhotoProcessingService\PhotoProcessingService.csproj", "{3F8911CC-81AC-4508-B877-2E7D04ABC7BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Message Queues\Shared\Shared.csproj", "{03C1483E-656B-4EAB-B757-CBC0288EDF10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,6 +95,18 @@ Global
 		{9C069AC0-22DE-4F50-A42F-E659D5246C47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C069AC0-22DE-4F50-A42F-E659D5246C47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C069AC0-22DE-4F50-A42F-E659D5246C47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A881E7E2-735F-44F8-8EBA-D644FA725A37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A881E7E2-735F-44F8-8EBA-D644FA725A37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A881E7E2-735F-44F8-8EBA-D644FA725A37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A881E7E2-735F-44F8-8EBA-D644FA725A37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F8911CC-81AC-4508-B877-2E7D04ABC7BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F8911CC-81AC-4508-B877-2E7D04ABC7BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F8911CC-81AC-4508-B877-2E7D04ABC7BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F8911CC-81AC-4508-B877-2E7D04ABC7BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03C1483E-656B-4EAB-B757-CBC0288EDF10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03C1483E-656B-4EAB-B757-CBC0288EDF10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03C1483E-656B-4EAB-B757-CBC0288EDF10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03C1483E-656B-4EAB-B757-CBC0288EDF10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,5 +120,8 @@ Global
 		{91A4396B-097A-4F61-93E1-16FC287F9726} = {C8F7E2D1-C229-4674-8E68-038F5917119C}
 		{732FE675-68AC-4F6C-9503-EA33C7D0E9BE} = {C8F7E2D1-C229-4674-8E68-038F5917119C}
 		{9C069AC0-22DE-4F50-A42F-E659D5246C47} = {F37C6568-B093-45C4-983B-58B547400AE9}
+		{A881E7E2-735F-44F8-8EBA-D644FA725A37} = {8E1AE77A-F69B-4288-AC95-9A291EF16532}
+		{3F8911CC-81AC-4508-B877-2E7D04ABC7BA} = {8E1AE77A-F69B-4288-AC95-9A291EF16532}
+		{03C1483E-656B-4EAB-B757-CBC0288EDF10} = {8E1AE77A-F69B-4288-AC95-9A291EF16532}
 	EndGlobalSection
 EndGlobal
