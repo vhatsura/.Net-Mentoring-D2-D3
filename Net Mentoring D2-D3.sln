@@ -57,6 +57,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoProcessingService", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Message Queues\Shared\Shared.csproj", "{03C1483E-656B-4EAB-B757-CBC0288EDF10}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Profiling", "Profiling", "{285712D3-B3F3-45D0-A8D8-8C1BFC32E001}"
+	ProjectSection(SolutionItems) = preProject
+		Profiling\Readme.md = Profiling\Readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileSample", "Profiling\ProfileSample\ProfileSample\ProfileSample.csproj", "{FF559A2F-212A-4C6B-8408-4C44C49E321D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +114,10 @@ Global
 		{03C1483E-656B-4EAB-B757-CBC0288EDF10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03C1483E-656B-4EAB-B757-CBC0288EDF10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03C1483E-656B-4EAB-B757-CBC0288EDF10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF559A2F-212A-4C6B-8408-4C44C49E321D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF559A2F-212A-4C6B-8408-4C44C49E321D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF559A2F-212A-4C6B-8408-4C44C49E321D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF559A2F-212A-4C6B-8408-4C44C49E321D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -123,5 +134,6 @@ Global
 		{A881E7E2-735F-44F8-8EBA-D644FA725A37} = {8E1AE77A-F69B-4288-AC95-9A291EF16532}
 		{3F8911CC-81AC-4508-B877-2E7D04ABC7BA} = {8E1AE77A-F69B-4288-AC95-9A291EF16532}
 		{03C1483E-656B-4EAB-B757-CBC0288EDF10} = {8E1AE77A-F69B-4288-AC95-9A291EF16532}
+		{FF559A2F-212A-4C6B-8408-4C44C49E321D} = {285712D3-B3F3-45D0-A8D8-8C1BFC32E001}
 	EndGlobalSection
 EndGlobal
