@@ -64,6 +64,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Profiling", "Profiling", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfileSample", "Profiling\ProfileSample\ProfileSample\ProfileSample.csproj", "{FF559A2F-212A-4C6B-8408-4C44C49E321D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife", "Profiling\GameOfLife\GameOfLife\GameOfLife.csproj", "{BDFD7BAE-9744-44C4-8259-B3757F24B245}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -118,6 +120,10 @@ Global
 		{FF559A2F-212A-4C6B-8408-4C44C49E321D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF559A2F-212A-4C6B-8408-4C44C49E321D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF559A2F-212A-4C6B-8408-4C44C49E321D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDFD7BAE-9744-44C4-8259-B3757F24B245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDFD7BAE-9744-44C4-8259-B3757F24B245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDFD7BAE-9744-44C4-8259-B3757F24B245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDFD7BAE-9744-44C4-8259-B3757F24B245}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -135,5 +141,6 @@ Global
 		{3F8911CC-81AC-4508-B877-2E7D04ABC7BA} = {8E1AE77A-F69B-4288-AC95-9A291EF16532}
 		{03C1483E-656B-4EAB-B757-CBC0288EDF10} = {8E1AE77A-F69B-4288-AC95-9A291EF16532}
 		{FF559A2F-212A-4C6B-8408-4C44C49E321D} = {285712D3-B3F3-45D0-A8D8-8C1BFC32E001}
+		{BDFD7BAE-9744-44C4-8259-B3757F24B245} = {285712D3-B3F3-45D0-A8D8-8C1BFC32E001}
 	EndGlobalSection
 EndGlobal

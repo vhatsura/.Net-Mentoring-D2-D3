@@ -1,17 +1,12 @@
-﻿using System.Windows;
-using System.Windows.Media;
-using System.Windows.Shapes;
-
-namespace GameOfLife
+﻿namespace GameOfLife
 {
-    class Cell
+    internal struct Cell
     {
-        public int PositionX { get; set; }
-        public int PositionY { get; set; }
-        public int Age { get; set; }
+        public int PositionX;
+        public int PositionY;
+        public int Age;
 
-        public bool IsAlive { get; set; }
-
+        public bool IsAlive;
 
         public Cell(int row, int column, int age, bool alive)
         {
@@ -19,7 +14,6 @@ namespace GameOfLife
             PositionY = column * 5;
             Age = age;
             IsAlive = alive;
-            
         }
     }
 }

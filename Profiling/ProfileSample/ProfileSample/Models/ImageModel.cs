@@ -6,6 +6,6 @@ namespace ProfileSample.Models
     {
         public string Name { get; set; }
 
-        public byte[] Data { get; set; } 
+        public byte[] Data { get; set; }
     }
 }

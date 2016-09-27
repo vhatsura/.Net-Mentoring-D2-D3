@@ -7,16 +7,16 @@ using System.Windows.Threading;
 
 namespace GameOfLife
 {
-    class AdWindow : Window
+    internal class AdWindow : Window
     {
         private readonly DispatcherTimer adTimer;
         private int imgNmb;     // the number of the image currently shown
         private string link;    // the URL where the currently shown ad leads to
-        
-    
+
+
         public AdWindow(Window owner)
         {
-            Random rnd = new Random();
+            var rnd = new Random();
             Owner = owner;
             Width = 350;
             Height = 100;
@@ -26,13 +26,12 @@ namespace GameOfLife
             Cursor = Cursors.Hand;
             ShowActivated = false;
             MouseDown += OnClick;
-            
+
             imgNmb = rnd.Next(1, 3);
             ChangeAds(this, new EventArgs());
 
-            // Run the timer that changes the ad's image 
-            adTimer = new DispatcherTimer();
-            adTimer.Interval = TimeSpan.FromSeconds(3);
+            // Run the timer that changes the ad's image
+            adTimer = new DispatcherTimer {Interval = TimeSpan.FromSeconds(3)};
             adTimer.Tick += ChangeAds;
             adTimer.Start();
         }
@@ -42,23 +41,24 @@ namespace GameOfLife
             System.Diagnostics.Process.Start(link);
             Close();
         }
-        
+
         protected override void OnClosed(EventArgs e)
         {
-            //Unsubscribe();
+            Unsubscribe();
             base.OnClosed(e);
-        } 
+        }
 
         public void Unsubscribe()
         {
             adTimer.Tick -= ChangeAds;
+            MouseDown -= OnClick;
         }
 
         private void ChangeAds(object sender, EventArgs eventArgs)
         {
-            
-            ImageBrush myBrush = new ImageBrush();
-            
+
+            var myBrush = new ImageBrush();
+
             switch (imgNmb)
             {
                 case 1:
@@ -83,7 +83,6 @@ namespace GameOfLife
                     imgNmb = 1;
                     break;
             }
-            
         }
     }
 }
