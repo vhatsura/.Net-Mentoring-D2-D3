@@ -4,7 +4,7 @@ using System.Net.NetworkInformation;
 
 namespace Keygen
 {
-    class Keygen
+    public class Keygen : IKeygen
     {
         public string GenerateKey(DateTime date)
         {
