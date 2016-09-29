@@ -74,6 +74,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Debugging", "Debugging", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keygen", "Debugging\Keygen\Keygen.csproj", "{E59F85B8-C83D-427A-A50E-3F7AA204A26F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AOP", "AOP", "{74113A60-9088-4C7E-BA04-264DA1D7084D}"
+	ProjectSection(SolutionItems) = preProject
+		AOP\README.md = AOP\README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Net.NetworkInformation;
 
 namespace Keygen
 {
@@ -8,26 +6,20 @@ namespace Keygen
     {
         private static void Main(string[] args)
         {
-            var byteArray = BitConverter.GetBytes(DateTime.Now.Date.ToBinary());
+            if (args.Length != 0)
+            {
+                DateTime date;
+                GenerateKey(DateTime.TryParse(args[0], out date) ? date : DateTime.Now);
+            }
 
-            var interface2 = NetworkInterface.GetAllNetworkInterfaces().FirstOrDefault();
-            if (interface2 == null) return;
+            GenerateKey(DateTime.Now);
+        }
 
-            var key = interface2
-                .GetPhysicalAddress()
-                .GetAddressBytes()
-                .Select((@byte, @int) => @byte ^ byteArray[@int])
-                .Select(@int =>
-                {
-                    if (@int > 999)
-                    {
-                        return @int;
-                    }
-                    return @int * 10;
-                })
-                .ToArray();
+        private static void GenerateKey(DateTime date)
+        {
+            var key = new Keygen().GenerateKey(date);
 
-            Console.WriteLine($"Key: {string.Join("-", key)}");
+            Console.WriteLine($"Key: {key}");
         }
     }
 }
