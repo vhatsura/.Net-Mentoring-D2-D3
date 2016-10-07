@@ -89,6 +89,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keygen", "AOP\CodeRewriting
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "AOP\CodeRewriting\Logger\Logger.csproj", "{E8442340-5BA5-4306-9F1D-2BD6572E811F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemoryLeakExample", "Profiling\MemoryLeakExample\MemoryLeakExample.csproj", "{E6F6600D-F2C9-4B89-88E2-18EAFE4521DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -167,6 +169,10 @@ Global
 		{E8442340-5BA5-4306-9F1D-2BD6572E811F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8442340-5BA5-4306-9F1D-2BD6572E811F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8442340-5BA5-4306-9F1D-2BD6572E811F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6F6600D-F2C9-4B89-88E2-18EAFE4521DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6F6600D-F2C9-4B89-88E2-18EAFE4521DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6F6600D-F2C9-4B89-88E2-18EAFE4521DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6F6600D-F2C9-4B89-88E2-18EAFE4521DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -191,5 +197,6 @@ Global
 		{9F06CA55-34E1-48D1-A463-F3E5BC30B0A7} = {74113A60-9088-4C7E-BA04-264DA1D7084D}
 		{C20E4352-EFAF-414E-84AA-2837A8B3AE02} = {9F06CA55-34E1-48D1-A463-F3E5BC30B0A7}
 		{E8442340-5BA5-4306-9F1D-2BD6572E811F} = {9F06CA55-34E1-48D1-A463-F3E5BC30B0A7}
+		{E6F6600D-F2C9-4B89-88E2-18EAFE4521DF} = {285712D3-B3F3-45D0-A8D8-8C1BFC32E001}
 	EndGlobalSection
 EndGlobal
